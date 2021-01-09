@@ -57,9 +57,9 @@
 								<thead>
 									<tr>
 										<th>ID</th>
-                                        <th>Code</th>
-										<th>Name</th>
 										<th>Image</th>
+										<th>Name</th>
+										<th>Order</th>
 										<th>Status</th>
 										<th>Edit / Delete</th>
 									</tr>
@@ -98,10 +98,13 @@
                         'name': 'ID',
                         'autoWidth': true
                     },
-                    {
-                        'data': 'code',
-                        'name': 'Code',
-                        'autoWidth': true
+                   {
+                        'data': 'image',
+                        'name': 'Image',
+                        'autoWidth': true,
+                        'render': function (data, type, full, meta) {
+                            return '<img src="' + data + '" onerror="this.src=\'{$image_url}theme/default/no_img.png\';" style="max-width: 250px; max-height: 150px;" />';
+                        }
                     },
                     {
                         'data': 'name',
@@ -109,12 +112,9 @@
                         'autoWidth': true
                     },
                     {
-                        'data': 'image',
-                        'name': 'Image',
-                        'autoWidth': true,
-                        'render': function (data, type, full, meta) {
-                            return '<img src="' + data + '" onerror="this.src=\'{$image_url}theme/default/no_img.png\';" style="max-width: 250px; max-height: 150px;" />';
-                        }
+                        'data': 'order_on',
+                        'name': 'Order',
+                        'autoWidth': true
                     },
                     {
                         'data': 'status',

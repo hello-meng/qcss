@@ -21,23 +21,21 @@
 						<script>
 							function check_data()
 							{
-								$('#code_req').hide();
 								$('#name_req').hide();
 								$('#image_req').hide();
-								$('#url_req').hide();
 								$('#status_req').hide();
 								$('.has-error').removeClass('has-error');
 								
 								with(document.add_edit)
 								{
-									if(code.value=="")
+									if(name.value=="")
 									{
-										$('#code_req').show();
-										$('#code_req').parent('div').addClass('has-error');
-										$('#code').focus();
+										$('#name_req').show();
+										$('#name_req').parent('div').addClass('has-error');
+										$('#name').focus();
 										return false;
 									}
-									if(image.value=="")
+									else if(image.value=="")
 									{
 										$('#image_req').show();
 										$('#image_req').parent('div').addClass('has-error');
@@ -55,26 +53,6 @@
 						</script>
 						<form role="form" class="form-horizontal" name="add_edit" method="post" onsubmit="return check_data();" enctype="multipart/form-data">
 							<div class="box-body">
-								<div class="form-group">
-									<label class="col-sm-3 control-label">Code</label>
-									<div class="col-sm-6">
-										<input readonly class="form-control" type="text" name="code" id="code" value="{$item.code|escape}">
-										<label id="code_req" for="inputError" style="display: none;" class="control-label">Please input code.</label>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label">Name</label>
-									<div class="col-sm-6">
-										<input class="form-control" type="text" name="name" id="name" value="{$item.name|escape}">
-										<label id="name_req" for="inputError" style="display: none;" class="control-label">Please input Name.</label>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label">Description </label>
-									<div class="col-sm-6">
-										<textarea class="form-control" name="description" id="description">{$item.description}</textarea>
-									</div>
-								</div>
 								<div class="form-group" id="image_display_block"{if $item.image == ""} style="display: none;"{/if}>
 									<label class="col-sm-3 control-label">&nbsp;</label>
 									<div class="col-sm-6">
@@ -102,6 +80,23 @@
 												}
 											}
 										</script>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Name</label>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" name="name" id="name" value="{$item.name|escape}">
+										<label id="name_req" for="inputError" style="display: none;" class="control-label">Please input Name.</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Order</label>
+									<div class="col-sm-6">
+										<select class="form-control" id="order_on" name="order_on">
+		                                    {section name=foo start=1 loop=51 step=1}
+												<option value="{$smarty.section.foo.index}">{$smarty.section.foo.index}</option>
+											{/section}
+		                                </select>
 									</div>
 								</div>
 								<div class="form-group">

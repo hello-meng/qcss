@@ -37,7 +37,7 @@
 										$('#code').focus();
 										return false;
 									}
-									if(image.value=="")
+									else if(image.value=="")
 									{
 										$('#image_req').show();
 										$('#image_req').parent('div').addClass('has-error');

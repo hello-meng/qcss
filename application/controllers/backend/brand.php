@@ -22,7 +22,7 @@ class Brand extends CI_Controller {
 			$this->this_sub_page = 'index';
 		}
 		
-		$this->smarty->assign('page_name', 'Cover');
+		$this->smarty->assign('page_name', 'Brand');
 		$this->smarty->assign('page', $this->this_page);
 		$this->smarty->assign('sub_page', $this->this_sub_page);
 		$this->smarty->assign('site_name', config_item('site_name'));
