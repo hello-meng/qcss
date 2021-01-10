@@ -94,7 +94,7 @@ class brand_model extends CI_Model {
         $this->db->insert('brand', $data);
     }
     
-    function update($id)
+    function update($id=0)
     {
         $data['name'] = $this->input->post('name');
         $data['image'] = $this->input->post('image');
@@ -107,7 +107,7 @@ class brand_model extends CI_Model {
         $this->db->update('brand', $data);
     }
     
-    function delete($id)
+    function delete($id=0)
     {
         $data['status'] = 'D';
         $data['updated_on'] = date('Y-m-d H:i:s');

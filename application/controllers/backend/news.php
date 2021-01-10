@@ -85,23 +85,23 @@ class News extends CI_Controller {
 		}
 	}
 	
-	public function edit()
+	public function edit($id = 0)
 	{
 		if($this->input->post('save'))
 		{
-            $this->this_model->update();
+            $this->this_model->update($id);
 			redirect('backend/'.$this->this_page.'?update=1');
 		}
 		else
 		{
-			$this->smarty->assign('item', $this->this_model->get_by_id());
+			$this->smarty->assign('item', $this->this_model->get_by_id($id));
 			$this->smarty->display('backend/'.$this->this_page.'_'.$this->this_sub_page.'.tpl');
 		}
 	}
 	
-	public function delete()
+	public function delete($id = 0)
 	{
-		$this->this_model->delete();
+		$this->this_model->delete($id);
 		$this->smarty->assign('location', 'backend/'.$this->this_page);
 		$this->smarty->display('backend/do_complete.tpl');
 	}

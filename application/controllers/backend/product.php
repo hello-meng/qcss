@@ -2,7 +2,7 @@
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
-class Banner extends CI_Controller {
+class Product extends CI_Controller {
 
 	public function __construct()
     {
@@ -22,7 +22,7 @@ class Banner extends CI_Controller {
 			$this->this_sub_page = 'index';
 		}
 		
-		$this->smarty->assign('page_name', 'Banner');
+		$this->smarty->assign('page_name', 'Product');
 		$this->smarty->assign('page', $this->this_page);
 		$this->smarty->assign('sub_page', $this->this_sub_page);
 		$this->smarty->assign('site_name', config_item('site_name'));
@@ -52,6 +52,9 @@ class Banner extends CI_Controller {
 			$this->smarty->assign('success_msg', 'Delete data successful.');
 		}
 		
+		$this->smarty->assign('brand', $this->this_model->get_brand());
+		$this->smarty->assign('model', $this->this_model->get_model());
+		$this->smarty->assign('year', $this->this_model->get_year());
 		$this->smarty->display('backend/'.$this->this_page.'.tpl');
 	}
 
@@ -81,6 +84,9 @@ class Banner extends CI_Controller {
 		}
 		else
 		{
+			$this->smarty->assign('brand', $this->this_model->get_brand());
+			$this->smarty->assign('model', $this->this_model->get_model());
+			$this->smarty->assign('year', $this->this_model->get_year());
 			$this->smarty->display('backend/'.$this->this_page.'_'.$this->this_sub_page.'.tpl');
 		}
 	}
@@ -94,6 +100,9 @@ class Banner extends CI_Controller {
 		}
 		else
 		{
+			$this->smarty->assign('brand', $this->this_model->get_brand());
+			$this->smarty->assign('model', $this->this_model->get_model());
+			$this->smarty->assign('year', $this->this_model->get_year());
 			$this->smarty->assign('item', $this->this_model->get_by_id($id));
 			$this->smarty->display('backend/'.$this->this_page.'_'.$this->this_sub_page.'.tpl');
 		}

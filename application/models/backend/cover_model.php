@@ -94,7 +94,7 @@ class cover_model extends CI_Model {
         $this->db->insert('cover', $data);
     }
     
-    function update($id)
+    function update($id = 0)
     {
         $data['name'] = $this->input->post('name');
         $data['description'] = $this->input->post('description');
@@ -105,7 +105,7 @@ class cover_model extends CI_Model {
         $this->db->update('cover', $data);
     }
     
-    function delete($id)
+    function delete($id = 0)
     {
         $data['status'] = 'D';
         $data['updated_on'] = date('Y-m-d H:i:s');

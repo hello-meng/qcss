@@ -68,11 +68,11 @@ class news_model extends CI_Model {
         return $query->result_array();
     }
     
-    function get_by_id()
+    function get_by_id($id=0)
     {
         $this->db->select('news.*');
         $this->db->from('news');
-        $this->db->where('news.id', $this->uri->segment(4));
+        $this->db->where('news.id',$id);
         $this->db->where("news.status <> 'D'");
         $query = $this->db->get();
         return $query->row_array();
@@ -93,26 +93,26 @@ class news_model extends CI_Model {
         $this->db->insert('news', $data);
     }
     
-    function update()
+    function update($id = 0)
     {
         $data['name'] = $this->input->post('name');
         $data['description'] = $this->input->post('description');
-        //$data['image'] = $this->input->post('image');
+        $data['image'] = $this->input->post('image');
         //$data['url'] = $this->input->post('url');
-        $data['order_on'] = $this->input->post('order_on');
+        //$data['order_on'] = $this->input->post('order_on');
         $data['status'] = $this->input->post('status');
         $data['updated_on'] = date('Y-m-d H:i:s');
         $data['updated_by'] = $this->authen->username;
-        $this->db->where('id', $this->uri->segment(4));
+        $this->db->where('id', $id);
         $this->db->update('news', $data);
     }
     
-    function delete()
+    function delete($id = 0)
     {
         $data['status'] = 'D';
         $data['updated_on'] = date('Y-m-d H:i:s');
         $data['updated_by'] = $this->authen->username;
-        $this->db->where('id', $this->uri->segment(4));
+        $this->db->where('id', $id);
         $this->db->where("news.status <> 'D'");
         $this->db->update('news', $data);
     }
