@@ -15,7 +15,7 @@ class cover_model extends CI_Model {
         $fName = @$this->input->post('columns')[0]['search']['value'];
         if($fName != "")
         {
-            $this->db->where("(cover.name LIKE '%".$fName."%' or cover.description LIKE '%".$fName."%')");
+            $this->db->where("(cover.code LIKE '%".$fName."%' or cover.name LIKE '%".$fName."%')");
         }
 
         $fStatus = @$this->input->post('columns')[1]['search']['value'];
@@ -39,7 +39,7 @@ class cover_model extends CI_Model {
         $fName = @$this->input->post('columns')[0]['search']['value'];
         if($fName != "")
         {
-            $this->db->where("(cover.name LIKE '%".$fName."%' or cover.description LIKE '%".$fName."%')");
+            $this->db->where("(cover.code LIKE '%".$fName."%' or cover.name LIKE '%".$fName."%')");
         }
 
         $fStatus = @$this->input->post('columns')[1]['search']['value'];

@@ -53,26 +53,26 @@ class product_model extends CI_Model {
         }
 
         //model
-        $fModel = @$this->input->post('columns')[0]['search']['value'];
+        $fModel = @$this->input->post('columns')[1]['search']['value'];
         if($fModel != "")
         {
             $this->db->where('product.model_id', $fModel);
         }
 
         //year
-        $fYear = @$this->input->post('columns')[0]['search']['value'];
+        $fYear = @$this->input->post('columns')[2]['search']['value'];
         if($fYear != "")
         {
             $this->db->where('product.year_id', $fYear);
         }
 
-        $fName = @$this->input->post('columns')[0]['search']['value'];
+        $fName = @$this->input->post('columns')[3]['search']['value'];
         if($fName != "")
         {
             $this->db->where("(product.description LIKE '%".$fName."%' )");
         }
 
-        $fStatus = @$this->input->post('columns')[1]['search']['value'];
+        $fStatus = @$this->input->post('columns')[4]['search']['value'];
         if($fStatus != "")
         {
             $this->db->where('product.status', $fStatus);
@@ -101,20 +101,20 @@ class product_model extends CI_Model {
         }
 
         //model
-        $fModel = @$this->input->post('columns')[0]['search']['value'];
+        $fModel = @$this->input->post('columns')[1]['search']['value'];
         if($fModel != "")
         {
             $this->db->where('product.model_id', $fModel);
         }
         
         //year
-        $fYear = @$this->input->post('columns')[0]['search']['value'];
+        $fYear = @$this->input->post('columns')[2]['search']['value'];
         if($fYear != "")
         {
             $this->db->where('product.year_id', $fYear);
         }        
         
-        $fStatus = @$this->input->post('columns')[1]['search']['value'];
+        $fStatus = @$this->input->post('columns')[4]['search']['value'];
         if($fStatus != "")
         {
             $this->db->where('product.status', $fStatus);

@@ -25,6 +25,7 @@
 								$('#model_id_req').hide();
 								$('#year_id_req').hide();
 								$('#image_req').hide();
+								$('#price_req').hide();	
 								$('#status_req').hide();
 								$('.has-error').removeClass('has-error');
 								
@@ -58,6 +59,13 @@
 										$('#image').focus();
 										return false;
 									}
+									else if(price.value=="")
+									{
+										$('#price_req').show();
+										$('#price_req').parent('div').addClass('has-error');
+										$('#price').focus();
+										return false;
+									}										
 									else if(status[0].checked==false && status[1].checked==false)
 									{
 										$('#status_req').show();
@@ -142,9 +150,9 @@
 									</div>
 								</div>								
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Price</label>
+									<label class="col-sm-3 control-label">Price <font color="red">*</font></label>
 									<div class="col-sm-6">
-										<input class="form-control" type="text" name="price" id="price">
+										<input class="form-control" type="number" name="price" id="price">
 										<label id="price_req" for="inputError" style="display: none;" class="control-label">Please input Price.</label>
 									</div>
 								</div>

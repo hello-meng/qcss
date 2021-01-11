@@ -180,8 +180,11 @@
             oTable = $('#data-tables').DataTable();
 
             $('#fSearch').click(function () {
-                oTable.columns(0).search($('#fName').val().trim());
-                oTable.columns(1).search($('#fStatus').val().trim());
+                oTable.columns(0).search($('#fBrand').val().trim());
+				oTable.columns(1).search($('#fModel').val().trim());
+				oTable.columns(2).search($('#fYear').val().trim());
+				oTable.columns(3).search($('#fName').val().trim());
+                oTable.columns(4).search($('#fStatus').val().trim());
                 oTable.draw();
             });
 
