@@ -136,7 +136,7 @@
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Description </label>
 									<div class="col-sm-6">
-										<textarea class="form-control" name="description" id="description"></textarea>
+										<textarea class="form-control editor" name="description" id="description"></textarea>
 									</div>
 								</div>
 
@@ -210,6 +210,56 @@
 {/block}
 {block name="script"}
 	<script>
+		(function(){
+			tinymce.init({
+				selector: '.editor',
+				height: 500,
+				plugins: [
+					'advlist autolink autosave link image lists charmap print preview hr anchor pagebreak',
+					'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+					'table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern responsivefilemanager'
+				],
+
+				toolbar1: 'undo redo | styleselect formatselect',
+				toolbar2: 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent blockquote | link unlink anchor responsivefilemanager media',
+				toolbar3: 'table | hr removeformat | subscript superscript | charmap emoticons | code preview fullscreen',
+				menubar: false,
+				image_title: true,
+				image_caption: true,
+				toolbar_items_size: 'small',
+				convert_urls: false,
+				external_filemanager_path:'{$file_manager_url}', 
+				filemanager_title:'Filemanager'
+			});
+		})();
+
+		function responsive_filemanager_callback_editor(url, ext, alt_name, field_id)
+		{
+			html = '';
+			for(var i = 0; i < url.length; i++)
+			{
+				if($.inArray(ext[i], ['jpg', 'jpeg', 'png', 'gif']) > -1)
+				{
+					html += '<img src="' + url[i] + '" alt="' + alt_name[i] + '" />';
+				}
+				else
+				{
+					html += '<a href="' + url[i] + '" title="' + alt_name[i] + '" target="_blank">' + alt_name[i] + '.' + ext[i] + '</a>';
+				}
+			}
+
+			tinymce.activeEditor.selection.setContent(html);
+
+			for(var i = 0; i < tinymce.editors.length; i++)
+			{
+				var ed = tinymce.editors[i];
+				for(var j = 0; j < ed.windowManager.windows.length; j++)
+				{
+					ed.windowManager.windows[j].close();
+				}
+			}
+		}
+
 		function open_file_manager(field_id)
 		{
 			var width = 860;

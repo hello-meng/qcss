@@ -134,6 +134,7 @@
 {/block}
 {block name="script"}
 	<script>
+
 		function open_file_manager(field_id)
 		{
 			var width = 860;
