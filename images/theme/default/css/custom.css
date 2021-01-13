@@ -1,0 +1,225 @@
+/*cardetail ,newsdetail*/
+.my-slide-wrap {
+    position: relative;
+}   
+/*
+.my-slider {
+    position:absolute;
+}
+*/
+.my-slider .arw-prev {
+    position:absolute;
+    bottom: 0px; 
+    right: 100px;
+    color: #0000;
+    width: 30px;
+    height: 30px;
+    background: white;
+    text-align: center;
+    display: inline-block;
+    line-height: 30px;
+    cursor: pointer;
+    z-index:1000;
+}
+.my-slider .arw-next {
+    position:absolute;
+    bottom: 0px;
+    right: 60px;
+    color: #0000;
+    width: 30px;
+    height: 30px;
+    background: white;
+    text-align: center;
+    display: inline-block;
+    line-height: 30px;
+    cursor: pointer;
+}
+.slide-item {
+    position: relative;
+}
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+.paging-info {
+    position:absolute;
+    bottom: 0px;
+    right: 0px;
+    color: black;
+    width: 30px;
+    height: 30px;
+    background: white;
+    text-align: center;
+    display: inline-block;
+    line-height: 30px;
+    padding-left: 30px;
+    padding-right: 40px;
+}
+.verticalx {
+    position:absolute;
+    bottom: 0px;
+    right: 90px;
+    color: black;
+    width: 10px;
+    height: 30px;
+    background: white;
+    text-align: center;
+    display: inline-block;
+    line-height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+} 
+
+/*home slide slick*/
+.home-slider {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.home-slider .arw-prev {
+    position:absolute;    
+    bottom: 50%; 
+    left: 0;
+    color: #0000;
+    background: white;
+    text-align: center;
+    display: inline-block;
+    line-height: 30px;
+    cursor: pointer;
+    z-index:1000;
+}
+.home-slider .arw-prev img {
+    height: 50px;
+}
+.home-slider .arw-next {
+    position:absolute;
+    bottom: 50%;
+    right: 0;
+    color: #0000;
+    /* width: 30px; */
+    /* height: 30px; */
+    background: white;
+    text-align: center;
+    display: inline-block;
+    line-height: 30px;
+    cursor: pointer;
+}
+.home-slider .arw-next img {
+    height: 50px;
+}
+
+/*custom combobox*/
+.custom-combobox {
+    position: relative;
+    /* border: 2px solid green; */
+}  
+  
+.custom-combobox select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Add some styling */
+    border: 2px solid #D2D2D2;
+    width: 210px;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display:inline-block; 
+    background-image: url("../img/icon/arrow-down.svg");
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    
+}  
+
+/*test*/
+/* .slick-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem 0;
+    list-style-type: none;
+}
+.slick-dots li {
+    margin: 0 0.25rem;
+    display : block;
+    border-bottom: 4px solid #F7B300;
+	background-color: #fff;
+	width: 30px;
+	margin-top: 70px;
+}
+.slick-dots button {
+    display: block;
+    width: 20px;
+    height: 1rem;
+    padding: 0;
+    border: none;
+    border-radius: 100%;
+    text-indent: -9999px;
+} 
+.slick-dots li.slick-active button {
+    background-color: red;
+} */
+
+
+
+.slick-dots{
+    position: absolute;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.slick-dots li {
+    position: relative;
+    display : inline-block;
+    border-bottom: 4px solid #D8D8D8;
+    background-color: transparent;
+    width: 35px;
+    height: 0;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+} 
+.slick-dots li button {
+    height: 0;
+    padding: 0;
+    font-size: none;
+}
+
+.slick-dots li button:before{
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: none;
+    text-align: center;
+    opacity: .25;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+}
+
+.slick-dots li.slick-active button {
+    border-bottom: 4px solid #F7B300;
+    background-color: transparent;
+    width: 35px;
+    height: 0;
+    padding: 0;
+    cursor: pointer;
+} 
+
+/*
+.slick-dots li.slick-active button:before, .slick-dots li button:before {
+    color: #FFF;
+    opacity: 1;
+    font-size: 16px;
+}
+*/
+

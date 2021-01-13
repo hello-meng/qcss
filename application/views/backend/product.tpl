@@ -63,11 +63,6 @@
 		                                &nbsp;&nbsp;&nbsp;
 		                            </div>                                                                                                        
 		                            <div class="form-group">
-		                                <label for="fName">Keyword : </label>
-		                                <input class="form-control" id="fName" type="text" size="10" />
-		                                &nbsp;&nbsp;&nbsp;
-		                            </div>
-		                            <div class="form-group">
 		                                <label for="fStatus">Status : </label>
 		                                <select class="form-control" id="fStatus">
 		                                    <option value="">[ Status ]</option>
@@ -76,6 +71,9 @@
 		                                </select>
 		                                &nbsp;&nbsp;&nbsp;
 		                            </div>
+		                            <div class="form-group">
+		                                <input class="btn btn-default" type="button" value="Clear" id="fClear" />
+		                            </div>									
 		                            <div class="form-group">
 		                                <input class="btn btn-default" type="button" value="Search" id="fSearch" />
 		                            </div>
@@ -86,7 +84,7 @@
 							<table id="data-tables" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th>No.</th>
 										<th>Brand</th>
                                         <th>Model</th>
                                         <th>Year</th>
@@ -128,12 +126,22 @@
                     {
                         'data': 'id',
                         'name': 'ID',
-                        'autoWidth': true
+                        'autoWidth': true,
+                        'render': function (data, type, full, meta) {
+							console.log(meta);
+							//console.log(type);
+                            return meta.row + 1;
+                        }						
                     },
                     {
                         'data': 'brand',
                         'name': 'Brand',
-                        'autoWidth': true
+                        'autoWidth': true,
+                        'render': function (data, type, full, meta) {
+							//console.log(full);
+							//console.log(type);
+                            return data + full['model'] + ' ' + full['year'];
+                        }
                     },
                     {
                         'data': 'model',
@@ -156,7 +164,13 @@
                     {
                         'data': 'price',
                         'name': 'Price',
-                        'autoWidth': true
+                        'autoWidth': true,
+    					'render': function (data, type, full, meta) {
+                            {literal}
+                                var val = parseInt(data).toFixed().replace(',', '.');
+                                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            {/literal}
+                        }						
                     },
                     {
                         'data': 'status',
@@ -183,9 +197,16 @@
                 oTable.columns(0).search($('#fBrand').val().trim());
 				oTable.columns(1).search($('#fModel').val().trim());
 				oTable.columns(2).search($('#fYear').val().trim());
-				oTable.columns(3).search($('#fName').val().trim());
                 oTable.columns(4).search($('#fStatus').val().trim());
                 oTable.draw();
+            });
+
+			$('#fClear').click(function () {
+				$('#fBrand').val('');
+				$('#fModel').val('');
+				$('#fYear').val('');
+				$('#fStatus').val('');
+
             });
 
         });

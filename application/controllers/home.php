@@ -8,6 +8,8 @@ class Home extends CI_Controller {
     {
 		parent::__construct();
 
+		$this->load->library('authen_member', NULL, 'authen');
+		$this->smarty->assign('member', $this->authen->member_data);
 		$this->smarty->assign('authen', $this->authen);
 		$this->lang->load('default', $this->authen->lang);
 		$this->smarty->assign('phrase', $this->lang->language);

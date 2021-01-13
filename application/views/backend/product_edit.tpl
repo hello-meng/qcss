@@ -146,9 +146,9 @@
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Description </label>
 									<div class="col-sm-6">
-										<textarea class="form-control" name="description" id="description">{$item.description}</textarea>
+										<textarea class="form-control editor" name="description" id="description">{$item.description}</textarea>
 									</div>
-								</div>																
+								</div>																								
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Price <font color="red">*</font></label>
 									<div class="col-sm-6">
@@ -210,5 +210,28 @@
 			} catch (e) {
 			}
 		}
+
+		(function(){
+			tinymce.init({
+				selector: '.editor',
+				height: 500,
+				plugins: [
+					'advlist autolink autosave link image lists charmap print preview hr anchor pagebreak',
+					'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+					'table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern responsivefilemanager'
+				],
+
+				toolbar1: 'undo redo | styleselect formatselect',
+				toolbar2: 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent blockquote | link unlink anchor responsivefilemanager media',
+				toolbar3: 'table | hr removeformat | subscript superscript | charmap emoticons | code preview fullscreen',
+				menubar: false,
+				image_title: true,
+				image_caption: true,
+				toolbar_items_size: 'small',
+				convert_urls: false,
+				external_filemanager_path:'{$file_manager_url}', 
+				filemanager_title:'Filemanager'
+			});
+		})();
 	</script>
 {/block}

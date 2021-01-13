@@ -101,9 +101,13 @@
                         'data': 'image',
                         'name': 'Image',
                         'autoWidth': true,
-                        'render': function (data, type, full, meta) {
-                            return '<img src="' + data + '" onerror="this.src=\'{$image_url}theme/default/no_img.png\';" style="max-width: 250px; max-height: 150px;" />';
-                        }
+                        //'render': function (data, type, full, meta) {
+                        //    return '<img src="' + data + '" onerror="this.src=\'{$image_url}theme/default/no_img.png\';" style="max-width: 250px; max-height: 150px;" />';
+                        //}
+						'render': function (data, type, full, meta) {
+							//ให้แสดงรูปแรก ถ้าต้องการแสดงหลายรูปให้ Loop 
+                            return '<img src="' + data[0] + '" onerror="this.src=\'{$image_url}theme/default/no_img.png\';" style="max-width: 250px; max-height: 150px;" />';
+                        }						
                     },                    
                     {
                         'data': 'name',

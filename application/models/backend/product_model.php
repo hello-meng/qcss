@@ -66,11 +66,11 @@ class product_model extends CI_Model {
             $this->db->where('product.year_id', $fYear);
         }
 
-        $fName = @$this->input->post('columns')[3]['search']['value'];
-        if($fName != "")
-        {
-            $this->db->where("(product.description LIKE '%".$fName."%' )");
-        }
+        // $fName = @$this->input->post('columns')[3]['search']['value'];
+        // if($fName != "")
+        // {
+        //     $this->db->where("(product.description LIKE '%".$fName."%' )");
+        // }
 
         $fStatus = @$this->input->post('columns')[4]['search']['value'];
         if($fStatus != "")
@@ -114,11 +114,19 @@ class product_model extends CI_Model {
             $this->db->where('product.year_id', $fYear);
         }        
         
+        // $fName = @$this->input->post('columns')[3]['search']['value'];
+        // if($fName != "")
+        // {
+        //     $this->db->where("(product.description LIKE '%".$fName."%')");
+        // }
+
         $fStatus = @$this->input->post('columns')[4]['search']['value'];
         if($fStatus != "")
         {
             $this->db->where('product.status', $fStatus);
         }
+
+
 
         $this->db->where("product.status <> 'D'");
 

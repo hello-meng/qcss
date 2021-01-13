@@ -30,30 +30,14 @@
 		<link rel="stylesheet" href="{$image_url}theme/backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 		<link rel="stylesheet" href="{$image_url}theme/backend/dist/css/fullcalendar.min.css?v=3.1.0">
 		<link rel="stylesheet" href="{$image_url}theme/backend/dist/css/main.css?ver={$smarty.now}">
-		<link rel="stylesheet" type="text/css" href="{$image_url}theme/default/assets/css/bootstrap-tagsinput.css">
+		{* <link rel="stylesheet" type="text/css" href="{$image_url}theme/default/assets/css/bootstrap-tagsinput.css"> *}
 		<link rel="stylesheet" href="{$image_url}theme/backend/dist/js/select2/css/select2.css">
 		{block name=css}{/block}
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<script src="{$image_url}theme/backend/plugins/jQuery/jquery-2.2.3.min.js"></script>
-		<script src="{$image_url}theme/backend/dist/js/jquery-ui.min.js?v=1.11.4"></script>
-		<script src="{$image_url}theme/backend/dist/js/ckeditor.js?v=4.5.7"></script>
-		<script src="{$image_url}theme/backend/bootstrap/js/bootstrap.min.js"></script>
-		<script src="{$image_url}theme/backend/plugins/modal/modal.js"></script>
-		<script src="{$image_url}theme/backend/plugins/datatables/jquery.dataTables.min.js"></script>
-		<script src="{$image_url}theme/backend/plugins/datatables/dataTables.bootstrap.min.js"></script>
-		<script src="{$image_url}theme/backend/dist/js/raphael-min.js?v=2.1.0"></script>
-		<!--<script src="{$image_url}theme/backend/plugins/morris/morris.min.js"></script>-->
-		<script src="{$image_url}theme/backend/plugins/sparkline/jquery.sparkline.min.js"></script>
-		<script src="{$image_url}theme/backend/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-		<script src="{$image_url}theme/backend/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-		<script src="{$image_url}theme/backend/plugins/knob/jquery.knob.js"></script>
-		<script src="{$image_url}theme/backend/dist/js/moment.min.js?v=2.11.2"></script>
-		<script src="{$image_url}theme/backend/plugins/daterangepicker/daterangepicker.js"></script>
-		<script src="{$image_url}theme/backend/plugins/datepicker/bootstrap-datepicker.js"></script>
-		<script src="{$image_url}theme/default/assets/js/bootstrap-tagsinput.min.js"></script>
+		
 		
 	</head>
 	<body class="hold-transition is-layout2 skin-blue skin-white sidebar-mini sidebar-collapse">
@@ -271,6 +255,24 @@
 				<strong>Copyright &copy; 2020 {$company_name}</strong> All rights reserved.
 			</footer>
 		</div>
+
+		<script src="{$image_url}theme/backend/plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<script src="{$image_url}theme/backend/dist/js/jquery-ui.min.js?v=1.11.4"></script>
+		<script src="{$image_url}theme/backend/dist/js/ckeditor.js?v=4.5.7"></script>
+		<script src="{$image_url}theme/backend/bootstrap/js/bootstrap.min.js"></script>
+		<script src="{$image_url}theme/backend/plugins/modal/modal.js"></script>
+		<script src="{$image_url}theme/backend/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="{$image_url}theme/backend/plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<script src="{$image_url}theme/backend/dist/js/raphael-min.js?v=2.1.0"></script>
+		<!--<script src="{$image_url}theme/backend/plugins/morris/morris.min.js"></script>-->
+		<script src="{$image_url}theme/backend/plugins/sparkline/jquery.sparkline.min.js"></script>
+		<script src="{$image_url}theme/backend/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+		<script src="{$image_url}theme/backend/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+		<script src="{$image_url}theme/backend/plugins/knob/jquery.knob.js"></script>
+		<script src="{$image_url}theme/backend/dist/js/moment.min.js?v=2.11.2"></script>
+		<script src="{$image_url}theme/backend/plugins/daterangepicker/daterangepicker.js"></script>
+		<script src="{$image_url}theme/backend/plugins/datepicker/bootstrap-datepicker.js"></script>
+		{* <script src="{$image_url}theme/default/assets/js/bootstrap-tagsinput.min.js"></script> *}
 		
 		<script src="{$image_url}theme/backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 		<script src="{$image_url}theme/backend/plugins/slimScroll/jquery.slimscroll.min.js"></script>

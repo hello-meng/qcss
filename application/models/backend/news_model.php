@@ -64,8 +64,19 @@ class news_model extends CI_Model {
             $this->db->limit($limit, $start);   
         }
         
+        //$query = $this->db->get();
+        //return $query->result_array();
+
         $query = $this->db->get();
-        return $query->result_array();
+        $data = $query->result_array();
+
+        foreach($data as $key => $value)
+        {
+            $data[$key]['image'] = json_decode($value['image'], true);
+        }
+
+        return $data;
+
     }
     
     function get_by_id($id=0)
@@ -75,14 +86,21 @@ class news_model extends CI_Model {
         $this->db->where('news.id',$id);
         $this->db->where("news.status <> 'D'");
         $query = $this->db->get();
-        return $query->row_array();
+        //return $query->row_array();
+
+        $data = $query->row_array();
+        $data['image'] = json_decode($data['image'], true);     //set ให้ data[image] อยู่ในรูปแบบ array โดยการ Decode 
+        return $data;
     }
     
     function insert()
     {
         $data['name'] = $this->input->post('name');
         $data['description'] = $this->input->post('description');
-        $data['image'] = $this->input->post('image');
+        //$data['image'] = $this->input->post('image');
+
+        $data['image'] = json_encode($this->input->post('image'));
+
         //$data['url'] = $this->input->post('url');
         //$data['order_on'] = $this->input->post('order_on');
         $data['status'] = $this->input->post('status');
@@ -97,7 +115,10 @@ class news_model extends CI_Model {
     {
         $data['name'] = $this->input->post('name');
         $data['description'] = $this->input->post('description');
-        $data['image'] = $this->input->post('image');
+        //$data['image'] = $this->input->post('image');
+
+        $data['image'] = json_encode($this->input->post('image'));
+
         //$data['url'] = $this->input->post('url');
         //$data['order_on'] = $this->input->post('order_on');
         $data['status'] = $this->input->post('status');
