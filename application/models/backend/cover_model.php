@@ -99,6 +99,7 @@ class cover_model extends CI_Model {
         $data['name'] = $this->input->post('name');
         $data['description'] = $this->input->post('description');
         $data['status'] = $this->input->post('status');
+        $data['image'] = $this->input->post('image');
         $data['updated_on'] = date('Y-m-d H:i:s');
         $data['updated_by'] = $this->authen->username;
         $this->db->where('id', $id);

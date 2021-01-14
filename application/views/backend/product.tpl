@@ -137,11 +137,11 @@
                         'data': 'brand',
                         'name': 'Brand',
                         'autoWidth': true,
-                        'render': function (data, type, full, meta) {
-							//console.log(full);
-							//console.log(type);
-                            return data + full['model'] + ' ' + full['year'];
-                        }
+                        //'render': function (data, type, full, meta) {
+						//	//console.log(full);
+						//	//console.log(type);
+                        //  return data + full['model'] + ' ' + full['year'];
+                        //}
                     },
                     {
                         'data': 'model',

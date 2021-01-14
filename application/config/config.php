@@ -25,6 +25,7 @@ $config['company_name']	= 'wisdom';
 $config['base_url']	= 'http://localhost/qcss/';
 $config['image_url']	= 'http://localhost/qcss/images/';
 $config['file_manager_url']	= 'http://localhost/qcss/images/tinymce/filemanager/';
+//$config['file_manager_url']	= 'http://localhost/qcss/images/theme/default/';
 
 /*
 |--------------------------------------------------------------------------

@@ -1,4 +1,9 @@
 รายการที่ต้องแก้ไข
 
+สอบถามทำไม path รูปจึงชี้ไปที่ http://localhost/qcss/images/tinymce/filemanager/
+ทำไมไม่เป็น http://localhost/qcss/images/theme/default/img
+
 backend 
-1. Product image gallery
+1. Product image gallery เหมือน News
+
+
