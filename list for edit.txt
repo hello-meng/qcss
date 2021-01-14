@@ -4,6 +4,6 @@
 ทำไมไม่เป็น http://localhost/qcss/images/theme/default/img
 
 backend 
-1. Product image gallery เหมือน News
-
+1. หน้า view/Product image gallery เหมือน view/News
+2. เรื่องเรียงลำดับ No. ไม่เอา ID มาแสดง แก้ไขทุกหน้า เหมือน view/product.tpl
 

@@ -94,7 +94,7 @@
 									<div class="col-sm-6">
 										<select class="form-control" id="order_on" name="order_on">
 		                                    {section name=foo start=1 loop=51 step=1}
-												<option value="{$smarty.section.foo.index}">{$smarty.section.foo.index}</option>
+												<option value="{$smarty.section.foo.index}"{if $item.order_on == $smarty.section.foo.index} selected="selected"{/if}>{$smarty.section.foo.index}</option>
 											{/section}
 		                                </select>
 									</div>
