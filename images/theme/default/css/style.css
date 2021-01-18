@@ -122,6 +122,10 @@ select:focus,button:focus {
 .ournew-card img {
 	padding-bottom: 10px;
 }
+.ournew-card p {
+	color: #666666;
+	font-size: 14px;
+}
 .ournew-heads {
 	color: black;
 	font-size: 24px;
@@ -196,7 +200,7 @@ select:focus,button:focus {
 	color: #666666;
 	font-size: 14px;
 	font-weight: 400;
-	padding-bottom: 25px;
+	/* padding-bottom: 25px; */
 }
 
 /*contact*/
@@ -297,13 +301,16 @@ select:focus,button:focus {
 /*car detail*/
 .cardet-carname {
 	position: relative;
-	padding-left: 90px;
+	padding-left: 120px;
 	padding-bottom: 20px;
 }
 .cardet-carname img {
 	position: absolute;
 	top: 5px;
 	left: 0px;
+	width: 100px;
+	height: 70px;
+	object-fit: cover;	
 }
 .cardet-carname h2 {
 	font-size: 38px;
@@ -385,7 +392,7 @@ select:focus,button:focus {
 }
 .usecar-carname {
 	position: relative;
-	padding-left: 90px;
+	padding-left: 100px;
 	/* padding-bottom: 20px; */
 }
 .usecar-carname h2 {
@@ -400,10 +407,11 @@ select:focus,button:focus {
 }
 .usecar-carname img {
 	position: absolute;
-	width: 65px;
+	width: 80px;
 	height: 65px;
 	top: 5px;
 	left: 0px;
+	object-fit: cover;
 }
 .usecar-btn {
 	padding: 10px 40px 10px 40px;

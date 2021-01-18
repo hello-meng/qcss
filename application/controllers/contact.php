@@ -34,13 +34,34 @@ class Contact extends CI_Controller {
 		$this->smarty->assign('base_url', config_item('base_url'));
 		$this->smarty->assign('image_url', config_item('image_url'));
 		$this->smarty->assign('error_msg', '');
-		$this->smarty->assign('success_msg', '');
+		$this->smarty->assign('success_msg', '');		
 
+		$this->load->model('cover_model', 'cover_model');
+		$this->load->model('content_model', 'content_model');
 		$this->load->model($this->this_page.'_model', 'this_model');
 	}
 	
 	public function index()
 	{
+		$this->this_page = "contact";
+
+		$this->load->library('user_agent');
+		if(strstr($this->agent->referrer(),$this->this_page.'/add') && $this->input->get('update') == "1")
+		{
+			$this->smarty->assign('success_msg', 'Insert data successful.');
+		}
+		else if(strstr($this->agent->referrer(),$this->this_page.'/edit') && $this->input->get('update') == "1")
+		{
+			$this->smarty->assign('success_msg', 'Update data successful.');
+		}
+		else if(strstr($this->agent->referrer(),$this->this_page.'/delete'))
+		{
+			$this->smarty->assign('success_msg', 'Delete data successful.');
+		}
+
+		//$this->smarty->assign('item',$this->this_model->get_content());
+		$this->smarty->assign('cover',$this->cover_model->get_cover($this->this_page));	
+		$this->smarty->assign('content',$this->content_model->get_content($this->this_page));
 		$this->smarty->display($this->this_page.'.tpl');
 	}
 

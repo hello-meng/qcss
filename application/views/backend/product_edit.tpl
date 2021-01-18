@@ -114,7 +114,8 @@
 		                                <label id="year_id_req" for="inputError" style="display: none;" class="control-label">Please select Year.</label>
 									</div>
 								</div>	
-								<div class="form-group" id="image_display_block"{if $item.image == ""} style="display: none;"{/if}>
+
+								{* <div class="form-group" id="image_display_block"{if $item.image == ""} style="display: none;"{/if}>
 									<label class="col-sm-3 control-label">&nbsp;</label>
 									<div class="col-sm-6">
 										<img id="image_display" src="{$item.image}" class="img-responsive" style="width: 550px;" />
@@ -142,7 +143,60 @@
 											}
 										</script>
 									</div>
+								</div> *}
+								
+								<div class="form-group">
+									<label class="col-sm-3">&nbsp;</label>
+									<h2 class="col-sm-6">Gallery</h2>
 								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Gallery</label>
+									<div class="col-sm-6">
+										<button class="btn btn-default" type="button" onclick="open_file_manager('gallery')">Select Image</button>
+										<script>
+											function responsive_filemanager_callback_gallery(url, ext, alt_name, field_id)
+											{
+												window['win_' + field_id].close();
+
+												html = '';
+												for(var i = 0; i < url.length; i++)
+												{
+													if($.inArray(ext[i], ['jpg', 'jpeg', 'png', 'gif']) > -1)
+													{
+														var html = '';
+														html += '<tr>';
+														html += '<td><img src="' + url[i] + '" onerror="this.src=\'{$image_url}theme/default/no_img.png\';" style="max-height: 100px;" /><input type="hidden" name="image[]" value="' + url[i] + '" /></td>';
+														html += '<td class="text-center"><a href="javascript:void(0);" onclick="$(this).parent().parent().remove();"><i class="fa fa-remove text-danger"></i></a></td>';
+														html += '</tr>';
+														$('#gallery').append(html);
+													}
+												}
+											}
+										</script>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">&nbsp;</label>
+									<div class="col-sm-6">
+										<table id="gallery" class="table table-bordered" width="100%">
+											<tr>
+												<th class="text-center">Image</th>
+												<th class="text-center">Remove</th>
+											</tr>
+											{foreach $item.image as $key => $value}
+												<tr>
+													<td>
+														<img src="{$value}" onerror="this.src='{$image_url}theme/default/no_img.png';" style="max-height: 100px;" />
+														<input type="hidden" name="image[]" value="{$value}" />
+													</td>
+													<td class="text-center"><a href="javascript:void(0);" onclick="$(this).parent().parent().remove();"><i class="fa fa-remove text-danger"></i></a></td>
+												</tr>
+											{/foreach}
+											
+										</table>
+									</div>
+								</div>									
+
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Description </label>
 									<div class="col-sm-6">

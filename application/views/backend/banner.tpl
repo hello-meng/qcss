@@ -56,7 +56,7 @@
 							<table id="data-tables" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th>No.</th>
 										<th>Name</th>
 										<th>Image</th>
 										<th>URL</th>

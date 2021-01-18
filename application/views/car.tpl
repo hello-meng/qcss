@@ -18,10 +18,18 @@
                         <!-- brand -->
                         <div class="custom-combobox">
                             <select id="a1">
+
+                                {* 
                                 <option value="" disabled selected>Select Brand</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                                <option value="3">Option 3</option> *}
+
+                                <option value="">Select Brand</option>
+                                {foreach $brands as $brand}
+                                    <option value="{$brand.id}">{$brand.name}</option>  
+                                {/foreach}
+                                
                             </select>
                         </div>
                     </div>
@@ -29,10 +37,16 @@
                         <!-- model -->
                         <div class="custom-combobox">
                             <select id="a2">
-                                <option value="" disabled selected>Select Model</option>
+                                {* <option value="" disabled selected>Select Model</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                                <option value="3">Option 3</option> *}
+
+                                <option value="">Select Model</option>
+                                {foreach $models as $model}
+                                    <option value="{$model.id}">{$model.name}</option>  
+                                {/foreach}
+
                             </select>
                         </div>
                     </div>
@@ -40,20 +54,28 @@
                         <!-- year -->
                         <div class="custom-combobox">
                             <select id="a3">
-                                <option value="" disabled selected>Select Year</option>
+                                {* <option value="" disabled selected>Select Year</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                                <option value="3">Option 3</option> *}
+
+                                <option value="">Select Year</option>
+                                {foreach $years as $year}
+                                    <option value="{$year.id}">{$year.name}</option> 
+                                {/foreach}
                             </select>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3"> 
                         <!-- button -->
                         <div class="custom-combobox">
-                            <button type="submit" class="btn btn-custom usecar-btn">Search now</button>
+                            {* <button class="btn btn-custom usecar-btn" type="button" value="Search" id="fSearch">Search now</button> *}
+                            <input class="btn btn-custom usecar-btn" type="button" value="Search now" id="fClear" />
                         </div>
+                        {* <div class="form-group">
+                            <button class="btn btn-custom usecar-btn" type="button" value="Clear" id="fClear">Clear</button>
+                        </div>                         *}
                     </div>
-
 
             </form>
         </div>
@@ -66,13 +88,14 @@
                 <div class="col-xs-12 col-sm-12">
                     <!-- count item -->
                     <div class="used-item-count">
-                        <p>4 Porsche available</p>
+                        <p>{$car_count.count_rec|number_format:0:".":","} {if $car_count.count_rec > 1} cars {else} car {/if} available</p>
                     </div>
                 </div>
             </div>
 
             <!-- card car -->
             <div class="">
+                {*
                 <!-- card -->
                 <div class=" usecar-card">
                     <div class="row">
@@ -149,13 +172,72 @@
                         </div>                      
                     </div>                 
                 </div>
+                *}
+
+                 
+                {foreach $cars as $key => $car}
+                {$img = $car.image|json_decode}  
+                <div class=" usecar-card">
+                    <div class="row">
+                        <div class="col-xs-5 usecar-img">
+                            <img src="{$img[0]}" class="w-100">
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="usecar-detail">
+                                <div class="usecar-carname">
+                                    <img src="{$car.brand_image}">
+                                    <h2>{$car.model_name}</h2>
+                                    <p>ปี : {$car.year_name}</p>
+                                </div>                                
+                                <h2>{$car.price|number_format:0:".":","} THB</h2>
+                                <a class="btn btn-custom" href="{$base_url}car/detail/{$car.id}" role="button">View more<span class="btn-custom-svg"><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></span></a>
+                            </div>
+                        </div>                      
+                    </div>                 
+                </div>
+                {/foreach} 
+
             </div>
             <!-- end card car -->
-
             
         </div>
     </section>
     <!-- END CONTANT -->
 {/block}
 
-{block name=script}{/block}
+{block name=script}
+    <script>
+        $(document).ready(function () {
+
+            $('#data-tables').DataTable({
+                'processing': true,
+                'serverSide': true,
+                'orderMulti': false,
+                'dom': '<"top"i>rt<"bottom"lp><"clear">',
+                'ajax': {
+                    'url': '{$base_url}{$page}/load_data{$get_params}',
+                    'type': 'POST',
+                    'dataType': 'json'
+                }
+
+            });
+
+
+            oTable = $('#data-tables').DataTable();
+
+            $('#fSearch').click(function () {
+                oTable.columns(0).search($('#fBrand').val().trim());
+				oTable.columns(1).search($('#fModel').val().trim());
+				oTable.columns(2).search($('#fYear').val().trim());
+                oTable.draw();
+            });
+
+			$('#fClear').click(function () {
+				$('#fBrand').val('');
+				$('#fModel').val('');
+				$('#fYear').val('');
+            });
+
+        });
+    </script>
+{/block}

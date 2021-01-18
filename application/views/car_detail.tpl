@@ -8,18 +8,24 @@
                     <div class="col-xs-12 col-sm-12">
                         <!-- image -->
                         <div class="my-slide-wrap">
+                            {* <div class="my-slider news-detail-img">
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
+                            </div>  *}
                             <div class="my-slider news-detail-img">
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                                <div class="slide-item"><img src="{$image_url}theme/default/img/car/bg-image.png" class="w-100" alt=""></div>
-                            </div>       
+                                {$img = $car.image|json_decode}
+                                {foreach $img as $value}
+                                    <div class="slide-item"><img src="{$value}" class="w-100" alt=""></div>
+                                {{/foreach}}
+                            </div>                                   
                             <span class="paging-info"></span>
                             <span class="verticalx">|</span>
                         </div>
@@ -28,14 +34,17 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <div class="cardet-carname">
-                            <img src="{$image_url}theme/default/img/car/logo.svg">
+                            {* <img src="{$image_url}theme/default/img/car/logo.svg">
                             <h2>911 Carrera 4 GTS</h2>
-                            <p>ปี : 2017</p>
+                            <p>ปี : 2017</p> *}
+                            <img src="{$car.brand_image}">
+                            <h2>{$car.model_name}</h2>
+                            <p>ปี : {$car.year_name}</p>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="cardet-price text-right">
-                            <h2>16,500,000 THB</h2>
+                            <h2>{$car.price|number_format:0:".":","} THB</h2>
                             <div>
                                 <span>Contact Seller</span>
                                 <img src="{$image_url}theme/default/img/icon/phone-circle.svg">
@@ -47,39 +56,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12">
                     <div class="cardet-detail">
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lac</h3>
-                        <p>
-                            orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse
-                            sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim
-                            tincidunt. Suspendisse sed scelerisque neque.orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere,
-                            sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales
-                            sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque.
-                        </p>
-                        <p>
-                            orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse
-                            sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim
-                            tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere,
-                            sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales
-                            sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus
-                            sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque.
-                        </p>
-                        <p>
-                            orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse
-                            sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim
-                            tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere,
-                            sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales
-                            sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus
-                            sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit
-                            amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque.
-                        </p>
-                        <img src="{$image_url}theme/default/img/news/image-slide.png" class="w-100">
-                        <p>
-                            orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse
-                            sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere, sit amet efficitur enim
-                            tincidunt. Suspendisse sed scelerisque neque.orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales sapien quis neque posuere,
-                            sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque. orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus lacus, aliquam sit amet vulputate ac, tempus sed justo. Sed sodales
-                            sapien quis neque posuere, sit amet efficitur enim tincidunt. Suspendisse sed scelerisque neque.
-                        </p>
+                        {$car.description} 
                     </div>
                 </div>
             </div>

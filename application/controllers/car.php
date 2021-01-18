@@ -41,12 +41,35 @@ class Car extends CI_Controller {
 	
 	public function index()
 	{
+		$this->smarty->assign('brands', $this->this_model->get_brand());
+		$this->smarty->assign('models', $this->this_model->get_model());
+		$this->smarty->assign('years', $this->this_model->get_year());
+		$this->smarty->assign('car_count', $this->this_model->count_all());
+		$this->smarty->assign('cars', $this->this_model->get_all());
 		$this->smarty->display($this->this_page.'.tpl');
+	}
+
+	public function load_data()
+	{
+		header('Content-Type: application/json');
+
+		$total = $this->this_model->count_all();
+		$data = $this->this_model->get_all($this->input->post('start'), $this->input->post('length'));
+
+		$output = array(
+			"draw" => $this->input->post('draw'),
+			"recordsFiltered" => $total,
+			"recordsTotal" => $total,
+			"data" => $data
+		);
+
+		echo json_encode($output);
 	}
 
 	public function detail($id = 0)
 	{
 		//$this->smarty->display($this->this_sub_page.'.tpl');
+		$this->smarty->assign('car', $this->this_model->get_by_id($id));
 		$this->smarty->display($this->this_page.'_'.$this->this_sub_page.'.tpl');
 	}
 }

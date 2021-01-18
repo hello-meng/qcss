@@ -41,6 +41,9 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{
+		$this->smarty->assign('dt_banners', $this->this_model->get_banner());
+		$this->smarty->assign('dt_news', $this->this_model->get_news());
+		$this->smarty->assign('dt_products', $this->this_model->get_product());
 		$this->smarty->display($this->this_page.'.tpl');
 	}
 }

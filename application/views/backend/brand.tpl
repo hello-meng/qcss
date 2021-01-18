@@ -56,7 +56,7 @@
 							<table id="data-tables" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th>No.</th>
 										<th>Image</th>
 										<th>Name</th>
 										<th>Order</th>
@@ -96,7 +96,12 @@
                     {
                         'data': 'id',
                         'name': 'ID',
-                        'autoWidth': true
+                        'autoWidth': true,
+                        'render': function (data, type, full, meta) {
+							//console.log(meta);
+							//console.log(type);
+                            return meta.row + 1;
+                        }	
                     },
                    {
                         'data': 'image',

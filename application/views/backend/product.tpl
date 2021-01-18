@@ -128,7 +128,7 @@
                         'name': 'ID',
                         'autoWidth': true,
                         'render': function (data, type, full, meta) {
-							console.log(meta);
+							//console.log(meta);
 							//console.log(type);
                             return meta.row + 1;
                         }						
@@ -158,7 +158,7 @@
                         'name': 'Image',
                         'autoWidth': true,
                         'render': function (data, type, full, meta) {
-                            return '<img src="' + data + '" onerror="this.src=\'{$image_url}theme/default/no_img.png\';" style="max-width: 250px; max-height: 150px;" />';
+                            return '<img src="' + data[0] + '" onerror="this.src=\'{$image_url}theme/default/no_img.png\';" style="max-width: 250px; max-height: 150px;" />';
                         }
                     },
                     {

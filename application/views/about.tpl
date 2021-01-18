@@ -4,15 +4,13 @@
     <!-- CONTENT -->
     <section>
         <!-- img Begin -->
-        <div class="about-bg" style="background-image : linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url('{$image_url}theme/default/img/about/bg-about.png');">
+        <div class="about-bg" style="background-image : linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ), url('{$cover.image}');">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="about-text-head">
-                            <h2>About us</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis augue. 
-                                Morbi sem tortor, malesuada vitae diam eget, 
-                                ornare posuere nisl. Mauris pretium id ligula a tempor. </p>
+                            <h2>{$cover.name}</h2>
+                            <p>{$cover.description}</p>
                         </div>
                     </div>
                 </div>
@@ -21,7 +19,7 @@
         <!-- img End -->       
 
         <div class="container">
-            {$item.content}
+            {$content.content}
         </div>
     </section>
     

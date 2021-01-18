@@ -36,12 +36,17 @@ class About extends CI_Controller {
 		$this->smarty->assign('error_msg', '');
 		$this->smarty->assign('success_msg', '');
 
-		$this->load->model($this->this_page.'_model', 'this_model');
+		//$this->load->model($this->this_page.'_model', 'this_model');
+		$this->load->model('content_model', 'content_model');
+		$this->load->model('cover_model', 'cover_model');
 	}
 	
 	public function index()
 	{
-		$this->smarty->assign('item',$this->this_model->get_content());
+		$this->this_page = "about";
+		//$this->smarty->assign('item',$this->this_model->get_content());
+		$this->smarty->assign('cover',$this->cover_model->get_cover($this->this_page));		
+		$this->smarty->assign('content',$this->content_model->get_content($this->this_page));
 		$this->smarty->display($this->this_page.'.tpl');
 	}
 }

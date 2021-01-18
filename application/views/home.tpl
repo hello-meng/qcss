@@ -9,6 +9,7 @@
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
 				<div class="carousel-inner" role="listbox">
+					{* 
 					<div class="item active">
 						<img class="first-slide w-100" src="{$image_url}theme/default/img/slide/image-1.png" alt="First slide" />
 						<div class="container">
@@ -36,8 +37,27 @@
 								</div>
 							</div>
 						</div>
+					</div> 
+					*}
+
+					{foreach $dt_banners as $key => $banner}		
+					<div class="item {if $key == 0}active{/if}">
+						<img class="first-slide w-100" src="{$image_url}theme/default/img/slide/image-1.png" alt="First slide" />
+						<div class="container">
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 carousel-caption caption-slide">
+									<h1>{$banner.name}</h1>
+									<p>
+										{$banner.description} 
+									</p>
+									<a class="btn btn-custom" href="{$banner.url}" role="button">Book now<span class="btn-custom-svg"><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></span></a>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
+					{/foreach}
+
+				</div> 
 
 				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 					<img src="{$image_url}theme/default/img/icon/slide-left.svg" class="icon-slide">
@@ -54,7 +74,7 @@
 
 
 		<!-- CONTENT -->
-		<section id="our">
+		<section id="news">
 
 			<!-- Our news -->
 			<div class="home-ournews">
@@ -65,6 +85,7 @@
 						</div>
 					</div>
 					<div class="row">
+						{*
 						<div class="col-xs-12 col-sm-6">
 							<div class="ournew-card">
 								<a href="#">									
@@ -85,11 +106,27 @@
 								</a>
 							</div>
 						</div>
+						*}
+						{foreach $dt_news as $key => $news}
+						{$img = $news.image|json_decode}  {*รูป เนื่องจากอยู่ในรูปแบบ array จึงต้องใช้ json_decode ออกมา*}
+						<div class="col-xs-12 col-sm-6">
+							<div class="ournew-card">
+								<a href="{$base_url}car/detail/{$news.id}">									
+									<img src="{$img[0]}" class="w-100">										
+									<h3 class="ournew-heads"><span class="new-yellow">NEW</span>{$news.name}</h3>
+									<p class="ournew-date">{$news.created_on|date_format:"%e %B %Y"}</p>
+									{* <p class="news-detail-text">{$news.description}</p> *}
+									{$news.description}
+								</a>
+							</div>
+						</div>							
+						{/foreach}
 					</div>
+
 					<div class="row home-pad">
 						<div class="col-xs-6 col-sm-12 text-center">
 							<!-- <a class="btn btn-custom" href="#" role="button"><p>Discover more</p><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></a> -->							
-							<a class="btn btn-custom-home" href="#" role="button">Discover more<span class="btn-custom-svg"><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></span></a>
+							<a class="btn btn-custom-home" href="{$base_url}news/" role="button">Discover more<span class="btn-custom-svg"><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></span></a>
 						</div>
 					</div>
 				</div>
@@ -98,7 +135,7 @@
 		</section>
 		<!-- END CONTANT -->
 
-		<section id="news">
+		<section id="product">
 			<!-- Car recommend -->
 			<div class="home-carsreccom">
 				<div class="container">
@@ -109,6 +146,7 @@
 					</div>
 					<div class="row">
 						<div class="home-slider">
+							{*
 							<div class="col-xs-12 col-sm-4">
 								<!-- card -->
 								<div class="car-recom-card">
@@ -221,12 +259,46 @@
 								</div>
 								<!-- end card -->
 							</div>
+							*}
+
+							{foreach $dt_products as $key => $product}
+							{$img = $product.image|json_decode}  {*รูป เนื่องจากอยู่ในรูปแบบ array จึงต้องใช้ json_decode ออกมา*}
+							<div class="col-xs-12 col-sm-4">
+								<!-- card -->
+								<div class="car-recom-card">
+									<a href="{$base_url}car/detail/{$product.id}">
+										<img src="{$img[0]}" class="w-100">
+										<div class="row">
+											<div class="col-xs-12 col-sm-12">
+												<h3 class="ournew-heads"><span class="new-yellow">NEW</span>{$product.model}</h3>
+											</div>
+										</div>
+										<div class="row">
+											{* <div class="col-xs-6 col-sm-6">	
+												<p class="car-recom-det">โฉม : 2014-2018</p>
+											</div> *}
+											<div class="col-xs-6 col-sm-6">													
+												<p class="car-recom-det">ปี : {$product.year}</p>
+											</div>										
+										</div>
+										<div class="car-recom-line"></div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-12">
+												<h3 class="ournew-heads">{$product.price|number_format:0:".":","} THB</h3>
+											</div>
+										</div>
+									</a>
+								</div>
+								<!-- end card -->
+							</div>
+							{/foreach}
+
 						</div>
 					</div>
 					<div class="row home-pad">
 						<div class="col-xs-12 col-sm-12 text-center">
 							<!-- <a class="btn btn-custom" href="#" role="button">Discover more&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>></a> -->
-							<a class="btn btn-custom" href="#" role="button">Discover more<span class="btn-custom-svg"><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></span></a>
+							<a class="btn btn-custom" href="{$base_url}car/" role="button">Discover more<span class="btn-custom-svg"><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></span></a>
 						</div>
 					</div>
 				</div>
