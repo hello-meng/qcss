@@ -69,8 +69,8 @@
                     <div class="col-xs-12 col-sm-3"> 
                         <!-- button -->
                         <div class="custom-combobox">
-                            {* <button class="btn btn-custom usecar-btn" type="button" value="Search" id="fSearch">Search now</button> *}
-                            <input class="btn btn-custom usecar-btn" type="button" value="Search now" id="fClear" />
+                            <button class="btn btn-custom usecar-btn" type="button" value="Search" id="fSearch">Search now</button>
+                            {* <input class="btn btn-custom usecar-btn" type="button" value="Search now" id="fSearch" /> *}
                         </div>
                         {* <div class="form-group">
                             <button class="btn btn-custom usecar-btn" type="button" value="Clear" id="fClear">Clear</button>
@@ -206,38 +206,5 @@
 {/block}
 
 {block name=script}
-    <script>
-        $(document).ready(function () {
 
-            $('#data-tables').DataTable({
-                'processing': true,
-                'serverSide': true,
-                'orderMulti': false,
-                'dom': '<"top"i>rt<"bottom"lp><"clear">',
-                'ajax': {
-                    'url': '{$base_url}{$page}/load_data{$get_params}',
-                    'type': 'POST',
-                    'dataType': 'json'
-                }
-
-            });
-
-
-            oTable = $('#data-tables').DataTable();
-
-            $('#fSearch').click(function () {
-                oTable.columns(0).search($('#fBrand').val().trim());
-				oTable.columns(1).search($('#fModel').val().trim());
-				oTable.columns(2).search($('#fYear').val().trim());
-                oTable.draw();
-            });
-
-			$('#fClear').click(function () {
-				$('#fBrand').val('');
-				$('#fModel').val('');
-				$('#fYear').val('');
-            });
-
-        });
-    </script>
 {/block}

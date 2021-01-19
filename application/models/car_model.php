@@ -37,7 +37,7 @@ class car_model extends CI_Model {
         return $query->result_array();
     }
 
-    function count_all()
+    function count_all($fBrand="",$fModel="",$fYear="")
     {
         $this->db->select('count(*) as count_rec');
         $this->db->from('product');
@@ -48,21 +48,18 @@ class car_model extends CI_Model {
         //$this->db->where("product.id = '3'");
 
         //brand
-        $fBrand = @$this->input->post('columns')[0]['search']['value'];
         if($fBrand != "")
         {
             $this->db->where('product.brand_id', $fBrand);
         }
 
         //model
-        $fModel = @$this->input->post('columns')[1]['search']['value'];
         if($fModel != "")
         {
             $this->db->where('product.model_id', $fModel);
         }
         
         //year
-        $fYear = @$this->input->post('columns')[2]['search']['value'];
         if($fYear != "")
         {
             $this->db->where('product.year_id', $fYear);
@@ -73,7 +70,7 @@ class car_model extends CI_Model {
         return $data['count_rec'];
     }
 
-    function get_all()
+    function get_all($fBrand="",$fModel="",$fYear="")
     {
         $this->db->select('product.*,brand.name,brand.image as brand_image,model.name as model_name,year.name as year_name');
         $this->db->from('product');
@@ -84,21 +81,18 @@ class car_model extends CI_Model {
         //$this->db->where("product.id = '3'");
 
         //brand
-        $fBrand = @$this->input->post('columns')[0]['search']['value'];
         if($fBrand != "")
         {
             $this->db->where('product.brand_id', $fBrand);
         }
 
         //model
-        $fModel = @$this->input->post('columns')[1]['search']['value'];
         if($fModel != "")
         {
             $this->db->where('product.model_id', $fModel);
         }
         
         //year
-        $fYear = @$this->input->post('columns')[2]['search']['value'];
         if($fYear != "")
         {
             $this->db->where('product.year_id', $fYear);

@@ -32,7 +32,7 @@ class home_model extends CI_Model {
 
     function get_product()
     {
-        //$this->db->select('product.*, brand.name as brand, model.name as model, year.name as year,DATEDIFF(product.created_on, DATE_ADD(product.created_on, INTERVAL 7 DAY)) as day_create');
+        //$this->db->select('product.*, brand.name as brand, model.name as model, year.name as year,datediff(product.created_on, DATE_ADD(product.created_on, INTERVAL 7 DAY)) as date_diff');
         $this->db->select('product.*, brand.name as brand, model.name as model, year.name as year');
         $this->db->from('product');
         $this->db->join('brand', 'brand.id = product.brand_id');
