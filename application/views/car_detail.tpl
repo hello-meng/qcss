@@ -24,7 +24,7 @@
                                 {$img = $car.image|json_decode}
                                 {foreach $img as $value}
                                     <div class="slide-item"><img src="{$value}" class="w-100" alt=""></div>
-                                {{/foreach}}
+                                {/foreach}
                             </div>                                   
                             <span class="paging-info"></span>
                             <span class="verticalx">|</span>
