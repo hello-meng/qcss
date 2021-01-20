@@ -11,13 +11,12 @@
                     </div>
                 </div>
             </div>
-            <form class="row">
-
+            <form class="row" mothod="POST" action="{$base_url}{$page}/">
                 <!-- combo box --> 
                     <div class="col-xs-12 col-sm-3">  
                         <!-- brand -->
                         <div class="custom-combobox">
-                            <select id="a1">
+                            <select name="fBrand" id="fBrand">
 
                                 {* 
                                 <option value="" disabled selected>Select Brand</option>
@@ -36,7 +35,7 @@
                     <div class="col-xs-12 col-sm-3">                     
                         <!-- model -->
                         <div class="custom-combobox">
-                            <select id="a2">
+                            <select name="fModel" id="fModel">
                                 {* <option value="" disabled selected>Select Model</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -53,7 +52,7 @@
                     <div class="col-xs-12 col-sm-3"> 
                         <!-- year -->
                         <div class="custom-combobox">
-                            <select id="a3">
+                            <select name="fYear" id="fYear">
                                 {* <option value="" disabled selected>Select Year</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -69,14 +68,13 @@
                     <div class="col-xs-12 col-sm-3"> 
                         <!-- button -->
                         <div class="custom-combobox">
-                            <button class="btn btn-custom usecar-btn" type="button" value="Search" id="fSearch">Search now</button>
+                            <button class="btn btn-custom usecar-btn" type="submit" id="fSearch">Search now</button>
                             {* <input class="btn btn-custom usecar-btn" type="button" value="Search now" id="fSearch" /> *}
                         </div>
                         {* <div class="form-group">
                             <button class="btn btn-custom usecar-btn" type="button" value="Clear" id="fClear">Clear</button>
                         </div>                         *}
                     </div>
-
             </form>
         </div>
     </section>
@@ -206,5 +204,7 @@
 {/block}
 
 {block name=script}
+	 <script>
 
+    </script>    
 {/block}

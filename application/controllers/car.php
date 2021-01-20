@@ -39,12 +39,12 @@ class Car extends CI_Controller {
 		$this->load->model($this->this_page.'_model', 'this_model');
 	}
 	
-	public function index()
+	public function index($fBrand="",$fModel="",$fYear="")
 	{
-		$fBrand = $this->input->post('brand');
-		$fModel = $this->input->post('brand');
-		$fYear = $this->input->post('brand');
-
+		$fBrand = $this->input->post('fBrand');
+		$fModel = $this->input->post('fModel');
+		$fYear = $this->input->post('fYear');
+		
 		$this->smarty->assign('brands', $this->this_model->get_brand());
 		$this->smarty->assign('models', $this->this_model->get_model());
 		$this->smarty->assign('years', $this->this_model->get_year());
@@ -52,7 +52,6 @@ class Car extends CI_Controller {
 		$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
 		$this->smarty->display($this->this_page.'.tpl');
 	}
-
 
 	public function detail($id = 0)
 	{

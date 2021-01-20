@@ -111,7 +111,7 @@
 						{$img = $news.image|json_decode}  {*รูป เนื่องจากอยู่ในรูปแบบ array จึงต้องใช้ json_decode ออกมา*}
 						<div class="col-xs-12 col-sm-6">
 							<div class="ournew-card">
-								<a href="{$base_url}car/detail/{$news.id}">									
+								<a href="{$base_url}news/detail/{$news.id}">									
 									<img src="{$img[0]}" class="w-100">										
 									<h3 class="ournew-heads">
 										{if $news.day_create < -7}<span class="new-yellow">NEW</span>{/if}
@@ -119,7 +119,9 @@
 									</h3>
 									<p class="ournew-date">{$news.created_on|date_format:"%e %B %Y"}</p>
 									{* <p class="news-detail-text">{$news.description}</p> *}
-									{$news.description}
+									<div class="new-desc">
+										{$news.description}
+									</div>
 								</a>
 							</div>
 						</div>							
