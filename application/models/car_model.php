@@ -81,6 +81,7 @@ class car_model extends CI_Model {
         //$this->db->where("product.id = '3'");
 
         //brand
+        //$fBrand = @$this->input->post('fBrand');
         if($fBrand != "")
         {
             $this->db->where('product.brand_id', $fBrand);

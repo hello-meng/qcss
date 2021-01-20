@@ -39,8 +39,8 @@ class Car extends CI_Controller {
 		$this->load->model($this->this_page.'_model', 'this_model');
 	}
 	
-	public function index($fBrand="",$fModel="",$fYear="")
-	{
+	public function index()
+	{	
 		$fBrand = $this->input->post('fBrand');
 		$fModel = $this->input->post('fModel');
 		$fYear = $this->input->post('fYear');
@@ -51,6 +51,23 @@ class Car extends CI_Controller {
 		$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
 		$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
 		$this->smarty->display($this->this_page.'.tpl');
+	}
+
+	public function load_data()
+	{
+		header('Content-Type: application/json');
+
+		$total = $this->this_model->count_all();
+		$data = $this->this_model->get_all($this->input->post('start'), $this->input->post('length'));
+
+		$output = array(
+			"draw" => $this->input->post('draw'),
+			"recordsFiltered" => $total,
+			"recordsTotal" => $total,
+			"data" => $data
+		);
+
+		echo json_encode($output);
 	}
 
 	public function detail($id = 0)

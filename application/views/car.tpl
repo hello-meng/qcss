@@ -35,7 +35,7 @@
                     <div class="col-xs-12 col-sm-3">                     
                         <!-- model -->
                         <div class="custom-combobox">
-                            <select name="fModel" id="fModel">
+                            <select id="fModel">
                                 {* <option value="" disabled selected>Select Model</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -52,7 +52,7 @@
                     <div class="col-xs-12 col-sm-3"> 
                         <!-- year -->
                         <div class="custom-combobox">
-                            <select name="fYear" id="fYear">
+                            <select id="fYear">
                                 {* <option value="" disabled selected>Select Year</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
