@@ -1,7 +1,7 @@
 {extends file="layout.tpl"}
 
 {block name=body}
-    <!-- CONTENT -->
+
     <section>
         <div class="container">
         <div class="row">
@@ -11,23 +11,10 @@
                 </div>
             </div>
         </div>
-        <!-- DETAIL -->
+        
         <div class="row">
             <div class="col-sm-5 col-sm-push-7">
                 <div class="contact">
-                    {* <div class="contact-comp">QCS.CO.,LTD.</div>                     
-                    <div class="contact-desc">
-                        <img src="{$image_url}theme/default/img/icon/icon-pin.svg">
-                        <span class="contact-comp-ico">Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522</span>
-                    </div>
-                    <div class="contact-desc">
-                        <img src="{$image_url}theme/default/img/icon/icon-email.svg">
-                        <span class="contact-comp-ico">Email@email.com</span>
-                    </div>
-                    <div class="contact-desc">
-                        <img src="{$image_url}theme/default/img/icon/icon-phone.svg">
-                        <span class="contact-comp-ico">+66 987 9809, +66 987 9809</span>
-                    </div> *}
                     {$content.content}
                 </div>
             </div>                        
@@ -35,6 +22,7 @@
                 <div class="contact-form">
 
                     <script>
+
                         function check_data()
                         {
                             $('#name_req').hide();
@@ -73,36 +61,42 @@
                                     $('#message').focus();
                                     return false;
                                 }
-
                             }
                         }
+
                     </script>
 
                     <form role="form" class="form-horizontal" name="add_edit" method="post" onsubmit="return check_data();" enctype="multipart/form-data">
-                        <div class="contact-form-item">
-                            <!-- <p>Name:</p> -->
-                            <input class="form-control form-rounded form-custom" type="text" placeholder="Name" name="name" id="name">
-                            <label id="name_req" for="inputError" style="display: none;" class="control-label">Please input Name.</label>
-                        </div>
-                        <div class="contact-form-item">
-                            <!-- <p>telephone:</p> -->
-                            <input class="form-control form-rounded form-custom" type="text" placeholder="Telephone Number" name="telephone" id="telephone">
-                            <label id="telephone_req" for="inputError" style="display: none;" class="control-label">Please input email</label>
-                        </div>
-                        <div class="contact-form-item">
-                            <!-- <p>Email:</p> -->
-                            <input class="form-control form-rounded form-custom" type="email" placeholder="Email"  name="email" id="email">
-                            <label id="email_req" for="inputError" style="display: none;" class="control-label">Please input email</label>
-                        </div>
-                        <div class="contact-form-item">
-                            <!-- <p>Message:</p> -->
-                            <textarea rows="3" class="form-control form-rounded form-custom" placeholder="Massage"  name="message" id="message"></textarea>
-                            <label id="message_req" for="inputError" style="display: none;" class="control-label">Please input email</label>
-                        </div>
-                        <div class="contact-form-button text-center">
-                            <!-- <button type="button" class="btn btn-warning">Send</button> -->
-                            <!-- <button type="button" class="btn-custom">Send&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>></button> -->
-                            <button type="submit" class="btn btn-custom" name="save" id="save" value="save">Send<span class="btn-custom-svg"><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></span></button>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <div class="contact-form-item">
+                                    <input class="form-control form-rounded form-custom" type="text" placeholder="Name" name="name" id="name">
+                                    <label id="name_req" for="inputError" style="display: none;" class="control-label">Please input Name.</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="contact-form-item">
+                                    <input class="form-control form-rounded form-custom" type="text" placeholder="Telephone Number" name="telephone" id="telephone">
+                                    <label id="telephone_req" for="inputError" style="display: none;" class="control-label">Please input email</label>
+                                </div>
+                            </div>                    
+                            <div class="form-group">
+                                <div class="contact-form-item">
+                                    <input class="form-control form-rounded form-custom" type="email" placeholder="Email"  name="email" id="email">
+                                    <label id="email_req" for="inputError" style="display: none;" class="control-label">Please input email</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="contact-form-item">
+                                    <textarea rows="3" class="form-control form-rounded form-custom" placeholder="Massage"  name="message" id="message"></textarea>
+                                    <label id="message_req" for="inputError" style="display: none;" class="control-label">Please input email</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="contact-form-button text-center">
+                                    <button class="btn btn-custom" type="submit" name="save" id="save" value="save">Send<span class="btn-custom-svg"><img src="{$image_url}theme/default/img/icon/icon-right-2-b.svg"></span></button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -110,7 +104,8 @@
 
         </div>
     </section>
-    <!-- END CONTANT -->
 {/block}
 
-{block name=script}{/block}
+{block name=script}
+
+{/block}

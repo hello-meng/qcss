@@ -168,7 +168,8 @@ select:focus,button:focus {
 	text-overflow: ellipsis;
     white-space: pre-wrap;
     overflow: hidden;
-    height: 100px;
+	height: 100px;
+	margin-top: -30px;
 }
 
 /*news*/

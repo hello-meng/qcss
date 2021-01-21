@@ -30,6 +30,7 @@ if (isset($_SERVER['UNENCODED_URL'])) {
  *
  */
 	define('ENVIRONMENT', 'production');
+	//define('ENVIRONMENT', 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

@@ -36,8 +36,8 @@ class Contact extends CI_Controller {
 		$this->smarty->assign('error_msg', '');
 		$this->smarty->assign('success_msg', '');		
 
-		$this->load->model('cover_model', 'cover_model');
-		$this->load->model('content_model', 'content_model');
+		//$this->load->model('cover_model', 'cover_model');
+		//$this->load->model('content_model', 'content_model');
 		$this->load->model($this->this_page.'_model', 'this_model');
 	}
 	
@@ -50,19 +50,33 @@ class Contact extends CI_Controller {
 		{
 			$this->smarty->assign('success_msg', 'Insert data successful.');
 		}
-		else if(strstr($this->agent->referrer(),$this->this_page.'/edit') && $this->input->get('update') == "1")
-		{
-			$this->smarty->assign('success_msg', 'Update data successful.');
-		}
-		else if(strstr($this->agent->referrer(),$this->this_page.'/delete'))
-		{
-			$this->smarty->assign('success_msg', 'Delete data successful.');
-		}
 
-		//$this->smarty->assign('item',$this->this_model->get_content());
-		$this->smarty->assign('cover',$this->cover_model->get_cover($this->this_page));	
-		$this->smarty->assign('content',$this->content_model->get_content($this->this_page));
+		
+		//$this->smarty->assign('cover',$this->cover_model->get_cover($this->this_page));	
+		//$this->smarty->assign('content',$this->content_model->get_content($this->this_page));
+
+		$this->smarty->assign('cover',$this->this_model->get_cover());
+		$this->smarty->assign('content',$this->this_model->get_content());
+
 		$this->smarty->display($this->this_page.'.tpl');
+	}
+
+	public function add()
+	{
+		if($this->input->post('save'))
+		{
+            $this->this_model->insert();
+			redirect($this->this_page.'?update=1');
+		}
+		else
+		{
+			//$this->smarty->assign('cover',$this->cover_model->get_cover('contact'));	
+			//$this->smarty->assign('content',$this->content_model->get_content('contact'));
+
+			$this->smarty->assign('cover',$this->this_model->get_cover());
+			$this->smarty->assign('content',$this->this_model->get_content());
+			$this->smarty->display($this->this_page.'.tpl');
+		}
 	}
 
 }

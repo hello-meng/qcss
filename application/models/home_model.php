@@ -19,8 +19,8 @@ class home_model extends CI_Model {
 
     function get_news()
     {
-        //$this->db->select('*,DATEDIFF(news.created_on, DATE_ADD(news.created_on, INTERVAL 7 DAY)) as day_create');
-        $this->db->select('*');
+        //$this->db->select('*');
+        $this->db->select('*,ABS(DATEDIFF(news.created_on, NOW())) as day_create');        
         $this->db->from('news');
         $this->db->where('status', 'Y');
         $this->db->order_by('id', 'desc');
@@ -32,8 +32,8 @@ class home_model extends CI_Model {
 
     function get_product()
     {
-        //$this->db->select('product.*, brand.name as brand, model.name as model, year.name as year,datediff(product.created_on, DATE_ADD(product.created_on, INTERVAL 7 DAY)) as date_diff');
-        $this->db->select('product.*, brand.name as brand, model.name as model, year.name as year');
+        //$this->db->select('product.*, brand.name as brand, model.name as model, year.name as year');
+        $this->db->select('product.*, brand.name as brand, model.name as model, year.name as year,ABS(DATEDIFF(product.created_on, NOW())) as day_create');
         $this->db->from('product');
         $this->db->join('brand', 'brand.id = product.brand_id');
         $this->db->join('model', 'model.id = product.model_id');

@@ -114,7 +114,7 @@
 								<a href="{$base_url}news/detail/{$news.id}">									
 									<img src="{$img[0]}" class="w-100">										
 									<h3 class="ournew-heads">
-										{if $news.day_create < -7}<span class="new-yellow">NEW</span>{/if}
+										{if $news.day_create <= 7}<span class="new-yellow">NEW</span>{/if}
 										{$news.name}
 									</h3>
 									<p class="ournew-date">{$news.created_on|date_format:"%e %B %Y"}</p>
@@ -276,7 +276,7 @@
 										<div class="row">
 											<div class="col-xs-12 col-sm-12">
 												<h3 class="ournew-heads">
-													{if $product.day_create < -7}<span class="new-yellow">NEW</span>{/if}
+													{if $product.day_create < 7}<span class="new-yellow">NEW</span>{/if}
 													{$product.model}												
 												</h3>
 											</div>
