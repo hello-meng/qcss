@@ -119,7 +119,7 @@
 									</h3>
 									<p class="ournew-date">{$news.created_on|date_format:"%e %B %Y"}</p>
 									{* <p class="news-detail-text">{$news.description}</p> *}
-									<div class="new-desc">
+									<div class="news-desc">
 										{$news.description}
 									</div>
 								</a>
