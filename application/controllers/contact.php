@@ -43,10 +43,11 @@ class Contact extends CI_Controller {
 	
 	public function index()
 	{
-		$this->this_page = "contact";
+		//this->this_page = "contact";
 
 		$this->load->library('user_agent');
-		if(strstr($this->agent->referrer(),$this->this_page.'/add') && $this->input->get('update') == "1")
+		//if(strstr($this->agent->referrer(),$this->this_page.'/add') && $this->input->get('update') == "1")
+		if(strstr($this->agent->referrer(),$this->this_page) && $this->input->get('update') == "1")
 		{
 			$this->smarty->assign('success_msg', 'Insert data successful.');
 		}

@@ -1,6 +1,11 @@
 {extends file="layout.tpl"}
 
 {block name=body}
+    {if $success_msg != ""}
+    <div class="alert alert-success">
+        {$success_msg}
+    </div>
+    {/if}
 
     <section>
         <div class="container">
@@ -33,28 +38,29 @@
                             
                             with(document.add_edit)
                             {
-                                if(name_req.value=="")
+                                if(name.value=="")
                                 {
+                                    alert("Name must be filled out");
                                     $('#name_req').show();
                                     $('#name_req').parent('div').addClass('has-error');
                                     $('#name').focus();
                                     return false;
                                 }
-                                else if(telephone_req.value=="")
+                                else if(telephone.value=="")
                                 {
                                     $('#telephone_req').show();
                                     $('#telephone_req').parent('div').addClass('has-error');
                                     $('#telephone').focus();
                                     return false;
                                 }
-                                else if(email_req.value=="")
+                                else if(email.value=="")
                                 {
                                     $('#email_req').show();
                                     $('#email_req').parent('div').addClass('has-error');
                                     $('#email').focus();
                                     return false;
                                 }																											
-                                else if(message_req.value=="")
+                                else if(message.value=="")
                                 {
                                     $('#message_req').show();
                                     $('#message_req').parent('div').addClass('has-error');
@@ -66,7 +72,7 @@
 
                     </script>
 
-                    <form role="form" class="form-horizontal" name="add_edit" method="post" onsubmit="return check_data();" enctype="multipart/form-data">
+                    <form role="form" action='{$base_url}{$page}/add' class="form-horizontal" name="add_edit" method="post" onsubmit="return check_data();" >
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="contact-form-item">

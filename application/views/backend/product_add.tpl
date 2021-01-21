@@ -31,21 +31,21 @@
 								
 								with(document.add_edit)
 								{
-									if(brand_id_req.value=="")
+									if(brand_id.value=="")
 									{
 										$('#brand_id_req').show();
 										$('#brand_id_req').parent('div').addClass('has-error');
 										$('#brand_id').focus();
 										return false;
 									}
-									else if(model_id_req.value=="")
+									else if(model_id.value=="")
 									{
 										$('#model_id_req').show();
 										$('#model_id_req').parent('div').addClass('has-error');
 										$('#model_id').focus();
 										return false;
 									}
-									else if(year_id_req.value=="")
+									else if(year_id.value=="")
 									{
 										$('#year_id_req').show();
 										$('#year_id_req').parent('div').addClass('has-error');
