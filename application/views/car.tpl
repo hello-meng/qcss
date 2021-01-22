@@ -19,7 +19,7 @@
                         <select id="fBrand" name="fBrand">
                             <option value="">[Select Brand]</option>
                             {foreach $brands as $brand}
-                                <option value="{$brand.id}">{$brand.name}</option>  
+                                <option value="{$brand.id}"{if $brand.id == $sBrand} selected="selected"{/if}>{$brand.name}</option>  
                             {/foreach}                            
                         </select>
                     </div>
@@ -30,7 +30,7 @@
                         <select id="fModel" name="fModel">
                                 <option value="">[Select Model]</option>
                             {foreach $models as $model}
-                                <option value="{$model.id}">{$model.name}</option>  
+                                <option value="{$model.id}"{if $model.id == $sModel} selected="selected"{/if}>{$model.name}</option>  
                             {/foreach}
                         </select>
                     </div>
@@ -41,7 +41,7 @@
                         <select id="fYear" name="fYear">
                             <option value="">[Select Year]</option>
                             {foreach $years as $year}
-                                <option value="{$year.id}">{$year.name}</option> 
+                                <option value="{$year.id}"{if $year.id == $sYear} selected="selected"{/if}>{$year.name}</option> 
                             {/foreach}
                         </select>
                     </div>

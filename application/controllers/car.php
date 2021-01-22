@@ -52,11 +52,19 @@ class Car extends CI_Controller {
 			$fYear = $this->input->post('fYear');
 			//$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
 			//$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
+
+			$this->smarty->assign('sBrand', $fBrand);
+			$this->smarty->assign('sModel', $fModel);
+			$this->smarty->assign('sYear', $fYear);
 		}
 		else
 		{
 			//$this->smarty->assign('car_count', $this->this_model->count_all("","",""));
 			//$this->smarty->assign('cars', $this->this_model->get_all("","",""));
+
+			$this->smarty->assign('sBrand', "");
+			$this->smarty->assign('sModel', "");
+			$this->smarty->assign('sYear', "");
 		}
 
 		$this->smarty->assign('brands', $this->this_model->get_brand());
