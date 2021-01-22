@@ -41,30 +41,36 @@ class Car extends CI_Controller {
 	
 	public function index()
 	{			
-		$this->smarty->assign('brands', $this->this_model->get_brand());
-		$this->smarty->assign('models', $this->this_model->get_model());
-		$this->smarty->assign('years', $this->this_model->get_year());
-		//$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
-		//$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
+		$fBrand = "";
+		$fModel = "";
+		$fYear = "";
 
-		if($this->input->post('fSearch'))
+		if($this->input->post())
 		{
 			$fBrand = $this->input->post('fBrand');
 			$fModel = $this->input->post('fModel');
 			$fYear = $this->input->post('fYear');
-			$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
-			$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
+			//$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
+			//$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
 		}
 		else
 		{
-			$this->smarty->assign('car_count', $this->this_model->count_all("","",""));
-			$this->smarty->assign('cars', $this->this_model->get_all("","",""));
-
+			//$this->smarty->assign('car_count', $this->this_model->count_all("","",""));
+			//$this->smarty->assign('cars', $this->this_model->get_all("","",""));
 		}
 
+		$this->smarty->assign('brands', $this->this_model->get_brand());
+		$this->smarty->assign('models', $this->this_model->get_model());
+		$this->smarty->assign('years', $this->this_model->get_year());
+
+		$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
+		$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
+		//$this->smarty->assign('car_count', $this->this_model->count_all("","",""));
+		//$this->smarty->assign('cars', $this->this_model->get_all("","",""));
 
 		$this->smarty->display($this->this_page.'.tpl');
 	}
+
 
 	public function detail($id = 0)
 	{
