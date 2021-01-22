@@ -40,34 +40,30 @@ class Car extends CI_Controller {
 	}
 	
 	public function index()
-	{	
-		$fBrand = $this->input->post('fBrand');
-		$fModel = $this->input->post('fModel');
-		$fYear = $this->input->post('fYear');
-		
+	{			
 		$this->smarty->assign('brands', $this->this_model->get_brand());
 		$this->smarty->assign('models', $this->this_model->get_model());
 		$this->smarty->assign('years', $this->this_model->get_year());
-		$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
-		$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
+		//$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
+		//$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
+
+		if($this->input->post('fSearch'))
+		{
+			$fBrand = $this->input->post('fBrand');
+			$fModel = $this->input->post('fModel');
+			$fYear = $this->input->post('fYear');
+			$this->smarty->assign('car_count', $this->this_model->count_all($fBrand,$fModel,$fYear));
+			$this->smarty->assign('cars', $this->this_model->get_all($fBrand,$fModel,$fYear));
+		}
+		else
+		{
+			$this->smarty->assign('car_count', $this->this_model->count_all("","",""));
+			$this->smarty->assign('cars', $this->this_model->get_all("","",""));
+
+		}
+
+
 		$this->smarty->display($this->this_page.'.tpl');
-	}
-
-	public function load_data()
-	{
-		header('Content-Type: application/json');
-
-		$total = $this->this_model->count_all();
-		$data = $this->this_model->get_all($this->input->post('start'), $this->input->post('length'));
-
-		$output = array(
-			"draw" => $this->input->post('draw'),
-			"recordsFiltered" => $total,
-			"recordsTotal" => $total,
-			"data" => $data
-		);
-
-		echo json_encode($output);
 	}
 
 	public function detail($id = 0)

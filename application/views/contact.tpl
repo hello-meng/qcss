@@ -40,7 +40,7 @@
                             {
                                 if(name.value=="")
                                 {
-                                    alert("Name must be filled out");
+                                    //alert("Name must be filled out");
                                     $('#name_req').show();
                                     $('#name_req').parent('div').addClass('has-error');
                                     $('#name').focus();
