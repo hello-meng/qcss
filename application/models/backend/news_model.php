@@ -56,7 +56,7 @@ class news_model extends CI_Model {
         }
         else
         {
-            $this->db->order_by('news.order_on asc');
+            $this->db->order_by('news.id desc');
         }
 
         if($limit > 0)

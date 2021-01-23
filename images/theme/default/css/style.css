@@ -121,6 +121,9 @@ select:focus,button:focus {
 }
 .ournew-card img {
 	padding-bottom: 10px;
+	width: 560px;
+	height: 270px;
+	object-fit: cover;
 }
 .ournew-card p {
 	color: #666666;
@@ -188,6 +191,11 @@ select:focus,button:focus {
 	color: #666666;
 	line-height: 25px;
 	padding-bottom: 30px;
+}
+.news-card img {
+	width: 350px;
+	height: 200px;
+	object-fit: cover;
 }
 
 /*news detail*/

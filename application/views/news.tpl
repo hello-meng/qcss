@@ -16,7 +16,7 @@
 				<div class="row">
 					{foreach $items as $key => $item}	
 					{$img = $item.image|json_decode}  {*รูป เนื่องจากอยู่ในรูปแบบ array จึงต้องใช้ json_decode ออกมา*}				
-					<div class="col-xs-12 col-sm-6 col-lg-4">
+					<div class="col-lg-4 col-sm-6 col-xs-12 news-card">
 						<a href="{$base_url}news/detail/{$item.id}">
 							<img src="{$img[0]}" class="w-100">
 							<h2 class="news-name">
