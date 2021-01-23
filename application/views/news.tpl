@@ -19,7 +19,10 @@
 					<div class="col-xs-12 col-sm-6 col-lg-4">
 						<a href="{$base_url}news/detail/{$item.id}">
 							<img src="{$img[0]}" class="w-100">
-							<h2 class="news-name">{$item.name}</h2>
+							<h2 class="news-name">
+								{if $item.day_create <= 7}<span class="new-yellow">NEW</span>{/if}
+								{$item.name}
+							</h2>
 							<p class="news-date">Updated date: {$item.created_on|date_format:"%A, %B %e, %Y"}</p>
 						</a>
 					</div>

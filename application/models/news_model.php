@@ -9,7 +9,7 @@ class news_model extends CI_Model {
 
     function get_all()
     {
-        $this->db->select('*');
+        $this->db->select('*,ABS(DATEDIFF(news.created_on, NOW())) as day_create');
         $this->db->from('news');
         $this->db->where('status', 'Y');
         $this->db->order_by('id', 'desc');
