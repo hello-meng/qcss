@@ -1,4 +1,13 @@
 {extends file="layout.tpl"}
+{block name=meta}
+		<meta name="description" content="description contact">
+		<meta name="keywords" content="test contact">
+{/block}
+
+{block name=title}
+		test contact view
+{/block}
+
 
 {block name=body}
     {if $success_msg != ""}

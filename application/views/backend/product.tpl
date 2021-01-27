@@ -191,7 +191,7 @@
                 ]
             });
 
-            oTable = $('#data-tables').DataTable();
+            var oTable = $('#data-tables').DataTable();
 
             $('#fSearch').click(function () {
                 oTable.columns(0).search($('#fBrand').val().trim());

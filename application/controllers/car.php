@@ -47,6 +47,12 @@ class Car extends CI_Controller {
 
 		if($this->input->post())
 		{
+
+			//var_dump($this->input->post());
+			//echo '<pre>';
+			//print_r($this->input->post());
+			//exit();
+
 			$fBrand = $this->input->post('fBrand');
 			$fModel = $this->input->post('fModel');
 			$fYear = $this->input->post('fYear');

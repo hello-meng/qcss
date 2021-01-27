@@ -4,9 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable = no"/>
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<meta name="description" content="บอกเกี่ยวกับรายละเอียอดอะไรก็ได้ เช่น QSC คือบริษัทนำเข้า bbbbbbbbb">
-		<meta name="keywords" content="สำหรับ SEO ให้ google searchengine เช่น aaaaaaa">
-		<title>QCS Meng</title>
+		{* <meta name="description" content="บอกเกี่ยวกับรายละเอียอดอะไรก็ได้ เช่น QSC คือบริษัทนำเข้า bbbbbbbbb">
+		<meta name="keywords" content="สำหรับ SEO ให้ google searchengine เช่น aaaaaaa"> *}
+		{block name=meta}{/block}
+		<title>{block name=title}{/block}</title>
+		
 
 		<!-- Font -->		
 		<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&family=Pragati+Narrow:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">

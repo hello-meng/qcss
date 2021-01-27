@@ -184,6 +184,8 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				
+				//console.log
+
 				var $slickElement = $('.home-slider');
 
 				$('.home-slider').slick({

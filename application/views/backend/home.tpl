@@ -213,5 +213,21 @@
                 </div>
             </div>
         {/if}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><i class="fa fa-tv"></i>&nbsp; messsage</h3>
+                        </div>
+                        <div class="box-body">
+                                <a href="{$base_url}backend/message" class="btn btn-app">
+                                    <i class="fa fa-gears"></i> message
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
     </section>
 {/block}

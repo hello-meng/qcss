@@ -242,6 +242,22 @@
 								</ul>
 							</li>
 						{/if}
+
+							<li class="treeview{if $authen->controller == 'message'} active{/if}">
+								<a href="#">
+									<i class="fa fa-users"></i> <span>messsage</span>
+									<span class="pull-right-container">
+										<i class="fa fa-angle-left pull-right"></i>
+									</span>
+								</a>
+								<ul class="treeview-menu">
+
+										<li{if $authen->controller == 'message'} class="active"{/if}><a href="{$base_url}backend/message"><i class="fa fa-users"></i> <span>message</span></a></li>
+
+
+								</ul>
+							</li>
+						
 					</ul>
 				</section>
 			</aside>	
